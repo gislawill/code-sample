@@ -1,0 +1,20 @@
+{
+  "node": {
+    "id": "bd6aa283-097b-548f-8ab7-9323ac90792e",
+    "slug": "mesoamerica",
+    "details": {
+      "bounds": {
+        "north": "21.875",
+        "south": "12.875",
+        "east": "-75.25",
+        "west": "-84.25"
+      },
+      "forecasts": ["precipitation"],
+      "introduction": {
+        "title": "A Changing Climate's Impacts on Mesoamerican Reefs",
+        "subhead": "The coastal regions of Mexico, Belize, and Guatemala are known for their beautiful beaches, productive reefs, and thriving communities. To prepare for climate change's impacts on this region, the ADVANCE project has created an interactive map to visualize the latest climate forecasts.",
+        "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      }
+    }
+  }
+}
