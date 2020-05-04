@@ -38,7 +38,7 @@ export const Legend: React.FC<ILegendProps> = props => {
       </Navigation>
       <h2>{prettyPrint(variable)} (in {forecastSummary && forecastSummary.units})</h2>
       <h4>{forecastSummary && forecastSummary.description}</h4>
-      <h4>Currently displaying {prettyPrint(variable, true)} forecasts for the climate circa {period} 
+      <h4>Currently displaying {prettyPrint(variable, true)} forecasts for the climate circa {period}&nbsp;
         under RCP{rcp} scenario at the {percentile} percentile.</h4>
       {forecastSummary && (
         <Distribution layer={layer} color={forecastSummary.gradient[1]} units={forecastSummary.units}
