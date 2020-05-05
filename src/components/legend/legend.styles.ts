@@ -2,18 +2,24 @@ import styled from "styled-components"
 
 export const LegendContainer = styled.div`
   background-color: white;
-  border-radius: 3px;
-  bottom: 20px;
-  box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
   font-family: 'Open Sans', sans-serif;
-  min-width: 550px;
-  padding: 15px 30px 30px;
-  position: fixed;
-  overflow: scroll;
-  right: 20px;
-  top: 20px;
-  width: 33%;
+  padding: 30px 10%;
+  margin-top: 600px;
+  position: relative;
   z-index: 1000;
+  @media (min-width: 991px) {
+    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.3);
+    min-width: 550px;
+    padding: 30px 30px 0px;
+    position: fixed;
+    border-radius: 3px;
+    bottom: 20px;
+    margin-top: 0;
+    top: 20px;
+    right: 20px;
+    width: 33%;
+    overflow: scroll;
+  }
   h1 {
     font-weight: 700;
     font-size: 2rem; 
@@ -35,11 +41,6 @@ export const LegendContainer = styled.div`
   p {
     margin-bottom: 0.75rem;
   }
-`
-
-export const Navigation = styled.div`
-  display: flex;
-  justify-content: flex-end;
 `
 
 export const NavigationButton = styled.button`

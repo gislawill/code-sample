@@ -1,18 +1,26 @@
 import React from "react"
 import { Map as LeafletMap, MapProps, TileLayer } from 'react-leaflet'
+import { useWindowWidth, useWindowHeight } from '../../lib/hooks'
 import "../layout.css"
-
-const mapStyles: React.CSSProperties = {
-  height: '100vh',
-  width: '100%',
-  margin: '0 auto',
-  position: 'fixed'
-}
 
 export const BaseMap: React.FC<MapProps> = (props) => {
   const { children } = props
   const [didLoad, setDidLoad] = React.useState(false)
+  
   React.useEffect(() => { setDidLoad(true) })
+  const width = useWindowWidth()
+  const height = useWindowHeight()
+  const [mapHeight, setMapHeight] = React.useState(height)
+  React.useEffect(() => {
+    setTimeout(() => { setMapHeight(null) }, 1000) // reset map height after leaflet loads
+  }, [])
+
+  const mapStyles: React.CSSProperties = {
+    height: width >= 991 ? '100vh': mapHeight,
+    width: '100%',
+    margin: '0 auto',
+    position: width >= 991 ? 'fixed' : 'relative'
+  }
   
   return (
     <>

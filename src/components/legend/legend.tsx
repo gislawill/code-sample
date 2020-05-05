@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meter } from '../meter'
-import { LegendContainer, MeterContainer, Navigation, NavigationButton } from './legend.styles'
+import { LegendContainer, MeterContainer } from './legend.styles'
 import { Distribution } from '../distribution'
 import { RCP, Period, Percentile, IGriddedDataset, IGriddedForcast } from '../../lib/types'
 
@@ -13,7 +13,6 @@ interface ILegendProps {
   setRcp: React.Dispatch<React.SetStateAction<RCP>>
   percentile: Percentile
   setRercentile: React.Dispatch<React.SetStateAction<Percentile>>
-  nextVariable: () => void
   layer?: IGriddedDataset
   forecastSummary: IGriddedForcast
 }
@@ -26,16 +25,11 @@ function prettyPrint(variable: string, lowercase: boolean = false) {
 } 
 
 export const Legend: React.FC<ILegendProps> = props => {
-  const { variable, period, setPeriod, 
-          rcp, setRcp, percentile, 
-          setRercentile, nextVariable, 
-          layer, forecastSummary } = props
+  const { variable, period, setPeriod, rcp, setRcp, 
+    percentile, setRercentile, layer, forecastSummary } = props
 
   return (
     <LegendContainer>
-      <Navigation>
-        <NavigationButton onClick={nextVariable}>Next Variable ></NavigationButton>
-      </Navigation>
       <h2>{prettyPrint(variable)} (in {forecastSummary && forecastSummary.units})</h2>
       <h4>{forecastSummary && forecastSummary.description}</h4>
       <h4>Currently displaying {prettyPrint(variable, true)} forecasts for the climate circa {period}&nbsp;

@@ -7,9 +7,9 @@ interface IMapPageProps {
   node: { 
     id: string
     slug: string
-    wordpress_id: number
     details: { 
       bounds: { [key: string]: number }
+      mobileBounds: { [key: string]: number }
       forecasts: string[]
       introduction: {
         title: string
@@ -21,11 +21,12 @@ interface IMapPageProps {
 }
 
 const MapPage: React.FC<IMapPageProps> = () => {
-  const { node: { details: { bounds, forecasts, introduction } } } = mockCMSData as IMapPageProps
+  const { node: { details: { bounds, mobileBounds, forecasts, introduction } } } = mockCMSData as IMapPageProps
   const mapBounds: Bounds = [[bounds.north, bounds.west], [bounds.south, bounds.east]]
+  const mapMobileBounds: Bounds = [[bounds.north, bounds.west], [bounds.south, bounds.east]]
   return (
-    <Map defaultBounds={mapBounds} variables={forecasts} 
-      introduction={introduction}
+    <Map defaultBounds={mapBounds} defaultMobileBounds={mapMobileBounds}
+      variables={forecasts} introduction={introduction}
     />
   )
 }

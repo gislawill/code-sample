@@ -72,7 +72,8 @@ export const Meter: React.FC<IMeterProps> = props => {
           <ButtonContainer color={color}>
             {option.display}
             <Button 
-              active={option.value === selectedOption} 
+              active={option.value === selectedOption}
+              aria-label={`Select ${option.display} to display on map`}
               onClick={() => { selectOption(option.value) }}
               color={color}
               key={`button_${option.value}`}
