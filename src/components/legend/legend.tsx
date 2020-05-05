@@ -3,6 +3,7 @@ import { Meter } from '../meter'
 import { LegendContainer, MeterContainer } from './legend.styles'
 import { Distribution } from '../distribution'
 import { RCP, Period, Percentile, IGriddedDataset, IGriddedForcast } from '../../lib/types'
+import { prettyPrint } from './legend.utils'
 
 interface ILegendProps {
   variable: string
@@ -17,20 +18,13 @@ interface ILegendProps {
   forecastSummary: IGriddedForcast
 }
 
-function prettyPrint(variable: string, lowercase: boolean = false) {
-  const splitVar = variable.split('-');
-  return splitVar.map(
-    (word, i) => (lowercase ? word.charAt(0) : word.charAt(0).toUpperCase()) + splitVar[i].slice(1)
-  ).join(' ')
-} 
-
 export const Legend: React.FC<ILegendProps> = props => {
   const { variable, period, setPeriod, rcp, setRcp, 
     percentile, setRercentile, layer, forecastSummary } = props
 
   return (
     <LegendContainer>
-      <h2>{prettyPrint(variable)} (in {forecastSummary && forecastSummary.units})</h2>
+      <h2>{prettyPrint(variable)}</h2>
       <h4>{forecastSummary && forecastSummary.description}</h4>
       <h4>Currently displaying {prettyPrint(variable, true)} forecasts for the climate circa {period}&nbsp;
         under RCP{rcp} scenario at the {percentile} percentile.</h4>

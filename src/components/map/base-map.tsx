@@ -21,12 +21,12 @@ export const BaseMap: React.FC<MapProps> = (props) => {
     margin: '0 auto',
     position: width >= 991 ? 'fixed' : 'relative'
   }
-  console.log('props.bounds', props.bounds)
+
   return (
     <>
       {didLoad && (
         <LeafletMap 
-          animate={false} doubleClickZoom={false} 
+          animate={false} doubleClickZoom={false} dragging={false}
           keyboard={false} scrollWheelZoom={false} zoomControl={false} 
           style={mapStyles} {...props}
         >

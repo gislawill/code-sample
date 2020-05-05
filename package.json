@@ -4,6 +4,21 @@
   "description": "A simple code sample in Gatsby",
   "version": "0.1.0",
   "author": "Will Gislason <william.s.gislason@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "d3": "^5.15.0",
@@ -43,6 +58,7 @@
     "babel-jest": "^26.0.0",
     "babel-preset-gatsby": "^0.4.0",
     "csv-parser": "^2.3.2",
+    "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.0",
     "jest-styled-components": "^6.0.0",
@@ -50,15 +66,5 @@
     "react-test-renderer": "^16.13.1",
     "ts-node": "^8.5.2",
     "typescript": "^3.7.2"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "jest"
   }
 }

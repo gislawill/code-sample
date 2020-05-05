@@ -9,7 +9,7 @@ function kernelEpanechnikov(k: number): (v: number) => number {
   return v => Math.abs(v /= k) <= 1 ? 1 * (1 - v * v) / k : 0;
 }
 
-export function createDistGraph(d3Container: HTMLDivElement, data: number[], min: number, max: number, color: string, units: string) {
+export function createDistGraph(d3Container: HTMLDivElement, data: number[], min: number, max: number, color: string, units: string, activeValue?: number) {
   const margin = { top: 20, right: 30, bottom: 40, left: 30 }
   const width = d3Container.offsetWidth - margin.left - margin.right
   const height = d3Container.offsetHeight - margin.top - margin.bottom;
@@ -88,4 +88,16 @@ export function createDistGraph(d3Container: HTMLDivElement, data: number[], min
       .x(d => xAxis(d[0]))
       .y(d => yAxis(d[1]))
     );
+  
+    if (activeValue) {
+      svg.append("path").datum([[activeValue,0], [activeValue,.01]])
+        .attr("fill", "none")
+        .attr("stroke", color)
+        .attr("stroke-opacity", 0.5)
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+          .x(d => xAxis(d[0]))
+          .y(d => yAxis(d[1]))
+        );
+    }
 }
