@@ -21,7 +21,6 @@ interface ILegendProps {
 export const Legend: React.FC<ILegendProps> = props => {
   const { variable, period, setPeriod, rcp, setRcp, 
     percentile, setRercentile, layer, forecastSummary } = props
-
   return (
     <LegendContainer>
       <h2>{prettyPrint(variable)}</h2>
@@ -29,8 +28,7 @@ export const Legend: React.FC<ILegendProps> = props => {
       <h4>Currently displaying {prettyPrint(variable, true)} forecasts for the climate circa {period}&nbsp;
         under RCP{rcp} scenario at the {percentile} percentile.</h4>
       {forecastSummary && (
-        <Distribution layer={layer} color={forecastSummary.gradient[1]} units={forecastSummary.units}
-          min={forecastSummary.min} max={forecastSummary.max} />
+        <Distribution layer={layer} color={forecastSummary.gradient[1]} units={forecastSummary.units} />
       )}
       <MeterContainer>
         <h3>Scenario Selection:</h3>

@@ -9,13 +9,13 @@ function kernelEpanechnikov(k: number): (v: number) => number {
   return v => Math.abs(v /= k) <= 1 ? 1 * (1 - v * v) / k : 0;
 }
 
-export function createDistGraph(d3Container: HTMLDivElement, data: number[], min: number, max: number, color: string, units: string, activeValue?: number) {
+export function createDistGraph(d3Container: HTMLDivElement, data: number[], color: string, units: string, activeValue?: number) {
   const margin = { top: 20, right: 30, bottom: 40, left: 30 }
   const width = d3Container.offsetWidth - margin.left - margin.right
   const height = d3Container.offsetHeight - margin.top - margin.bottom;
 
-  const roundedMin = Math.round(min || Math.min(...data))
-  const roundedMax = Math.round(max || Math.min(...data))
+  const roundedMin = Math.round(Math.min(...data))
+  const roundedMax = Math.round(Math.max(...data))
   // append the svg object to the body of the page
   const svg = d3.select(d3Container)
     .append("svg")

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Page, Head, Subhead, Content } from './written-content.style'
 
-interface WrittenContentProps {
+export interface IWrittenContentProps {
   position: 'bottom' | 'right'
   shouldDisplay?: boolean
   head?: string
@@ -10,14 +10,14 @@ interface WrittenContentProps {
   content?: string;
 }
 
-export const WrittenContent: React.FC<WrittenContentProps> = props => {
+export const WrittenContent: React.FC<IWrittenContentProps> = props => {
   const { head, subhead, content, position, shouldDisplay } = props
 
   return (
     <Page shouldDisplay={shouldDisplay} position={position}>
-      {head && <Head>{head}</Head>}
-      {subhead && <Subhead>{subhead}</Subhead>}
-      {content && <Content>{content}</Content>}
+      {head && <Head data-testid="head">{head}</Head>}
+      {subhead && <Subhead data-testid="subhead">{subhead}</Subhead>}
+      {content && <Content data-testid="content">{content}</Content>}
     </Page>
   )
 }
