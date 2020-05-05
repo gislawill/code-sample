@@ -1,9 +1,15 @@
 import * as React from 'react';
 import { useWindowResize } from './use-window-resize'
 
-const getWidth = () => window.innerWidth 
-  || document.documentElement.clientWidth 
-  || document.body.clientWidth
+function getWidth() {
+  if (typeof window !== 'undefined') {
+    return window.innerWidth 
+    || document.documentElement.clientWidth 
+    || document.body.clientWidth
+  } else {
+    return 0
+  }
+}
 
 export function useWindowWidth() {
   let [width, setWidth] = React.useState(getWidth())
@@ -11,9 +17,15 @@ export function useWindowWidth() {
   return width
 }
 
-const getHeight = () => window.innerHeight 
-  || document.documentElement.clientHeight 
-  || document.body.clientHeight
+function getHeight() {
+  if (typeof window !== 'undefined') {
+    return window.innerHeight 
+    || document.documentElement.clientHeight 
+    || document.body.clientHeight
+  } else {
+    return 0
+  }
+}
 
 export function useWindowHeight() {
   let [width, setWidth] = React.useState(getHeight())

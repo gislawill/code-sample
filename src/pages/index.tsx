@@ -23,7 +23,7 @@ interface IMapPageProps {
 const MapPage: React.FC<IMapPageProps> = () => {
   const { node: { details: { bounds, mobileBounds, forecasts, introduction } } } = mockCMSData as IMapPageProps
   const mapBounds: Bounds = [[bounds.north, bounds.west], [bounds.south, bounds.east]]
-  const mapMobileBounds: Bounds = [[bounds.north, bounds.west], [bounds.south, bounds.east]]
+  const mapMobileBounds: Bounds = [[mobileBounds.north, mobileBounds.west], [mobileBounds.south, mobileBounds.east]]
   return (
     <Map defaultBounds={mapBounds} defaultMobileBounds={mapMobileBounds}
       variables={forecasts} introduction={introduction}

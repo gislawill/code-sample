@@ -10,10 +10,10 @@
         "west": "-86.25"
       },
       "mobileBounds": {
-        "north": "21.875",
-        "south": "12.875",
-        "east": "-78.25",
-        "west": "-86.25"
+        "north": "20",
+        "south": "12",
+        "east": "-84",
+        "west": "-92"
       },
       "forecasts": ["precipitation"],
       "introduction": {

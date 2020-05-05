@@ -17,11 +17,7 @@ export const Distribution: React.FC<IDistributionProps> = props => {
   const d3Container = React.useRef<HTMLDivElement>(null);
   
   function runCreate() {
-    console.log('runCreate')
-    console.log('layer', layer)
-    console.log('d3Container.current', d3Container.current)
     if (layer && d3Container.current) {      
-      console.log('runCreate in')
       const data = layer.points.map(point => point.value)
       d3Container.current.innerHTML = ''
       createDistGraph(d3Container.current, data, min, max, color, units)

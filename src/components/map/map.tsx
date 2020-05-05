@@ -55,7 +55,7 @@ export const Map: React.FC<IMapProps> = props => {
     else if (forecast.datasets['2020_25th']) setRcp(null)
     else console.error('Missing forecast datasets')
   }
-
+  console.log('defaultBounds', width)
   return (
     <>
       <BaseMap bounds={width >= 991 ? defaultBounds : defaultMobileBounds}>
