@@ -2,6 +2,7 @@ import React from 'react'
 import { Meter } from '../meter'
 import { LegendContainer, MeterContainer } from './legend.styles'
 import { Distribution } from '../distribution'
+import { SummaryStats } from '../summary-stats'
 import { RCP, Period, Percentile, IGriddedDataset, IGriddedForcast } from '../../lib/types'
 import { prettyPrint } from './legend.utils'
 
@@ -27,6 +28,7 @@ export const Legend: React.FC<ILegendProps> = props => {
       <h4>{forecastSummary && forecastSummary.description}</h4>
       <h4>Currently displaying {prettyPrint(variable, true)} forecasts for the climate circa {period}&nbsp;
         under RCP{rcp} scenario at the {percentile} percentile.</h4>
+      <SummaryStats layer={layer} period={period} rcp={period} percentile={period} />
       {forecastSummary && (
         <Distribution layer={layer} color={forecastSummary.gradient[1]} units={forecastSummary.units} />
       )}
